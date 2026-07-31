@@ -320,20 +320,43 @@ nav.active{
       animation: scroll 40s linear infinite;
     }
 
-    .logos-track img{
+    .clients{
 
-height:60px;
-object-fit:contain;
-padding:10px;
-      filter: grayscale(100%);
-      opacity: 0.8;
-      transition: all 0.3s ease;
+    overflow:hidden;
+
+    background:#fff;
+
+    padding:60px 0;
+
+}
+
+.logos-track{
+
+    display:flex;
+
+    align-items:center;
+
+    width:max-content;
+
+    animation:scroll 35s linear infinite;
+
+}
+
+@keyframes scroll{
+
+    from{
+
+        transform:translateX(0);
+
     }
 
-    @keyframes scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+    to{
+
+        transform:translateX(-50%);
+
     }
+
+}
 
     .logos-slider:hover .logos-track {
       animation-play-state: paused;

@@ -1,1 +1,988 @@
 
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #111827;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 120px 20px 60px;
+      background: #fff;
+    }
+
+    /* ===== CIRCLES (ONLY INSIDE HERO) ===== */
+    .hero .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.25;
+      filter: blur(40px);
+      animation: float 10s infinite alternate ease-in-out;
+      z-index: 0;
+    }
+
+    .hero .circle.blue { background: #0C6AB7; }
+    .hero .circle.teal { background: #14C1B1; }
+
+    .hero .circle.small { width: 150px; height: 150px; }
+    .hero .circle.medium { width: 250px; height: 250px; }
+    .hero .circle.large { width: 400px; height: 400px; }
+
+    .hero .circle.one { top: 10%; left: 8%; }
+    .hero .circle.two { bottom: 20%; right: 10%; }
+    .hero .circle.three { top: 50%; right: 25%; }
+    .hero .circle.four { bottom: 5%; left: 25%; }
+
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-30px); }
+    }
+
+    /* ===== HERO CONTENT ===== */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      color: #0C6AB7;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero-content h1 span {
+      color: #14C1B1;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+
+    /* ===== BUTTON ===== */
+    #infoBtn {
+      margin-top: 30px;
+      background: linear-gradient(90deg, #0C6AB7, #14C1B1);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 36px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(12, 106, 183, 0.25);
+      letter-spacing: 0.5px;
+    }
+
+    #infoBtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(12, 106, 183, 0.35);
+      background: linear-gradient(90deg, #14C1B1, #0C6AB7);
+    }
+
+    #infoBtn:active { transform: scale(0.97); }
+
+    a { text-decoration: none; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 0.95rem;
+      color: #555;
+      background: #fff;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: 100px 30px 70px;
+      }
+      .hero-content h1 { font-size: 2.3rem; }
+      .hero-content p { font-size: 1rem; }
+    }
+  </style>
+
+  <!-- CLIENTS SECTION STYLES -->
+  <style>
+    .clients {
+      background: #ffffff;
+      text-align: center;
+      padding: 100px 10%;
+      overflow: hidden;
+    }
+
+    .clients h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #14c1b1, #0c6ab7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+
+    .logos-slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .logos-track {
+      display: flex;
+      gap: 60px;
+      width: max-content;
+      animation: scroll 30s linear infinite;
+    }
+
+    .logos-track img {
+      height: 70px;
+      filter: grayscale(100%);
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logos-slider:hover .logos-track {
+      animation-play-state: paused;
+    }
+
+    @media (max-width: 768px) {
+      .clients { padding: 60px 5%; }
+      .clients h1 { font-size: 2rem; }
+      .logos-track img { height: 50px; }
+      .logos-track { gap: 40px; animation-duration: 25s; }
+    }
+  </style>
+
+  <!-- WHY CHOOSE US STYLES -->
+  <style>
+    .why-choose {
+      text-align: center;
+      padding: 60px 8% 60px;
+      background: #ffffff;
+    }
+
+    .why-choose h2 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #14C1B1, #0C6AB7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .why-choose .subtitle {
+      color: #555;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .features-row {
+      display: flex;
+      justify-content: center;
+      gap: 4.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      flex: 1 1 250px;
+      max-width: 320px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-card .icon {
+      font-size: 30px;
+      color: #14C1B1;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      color: #333;
+      margin: 0;
+    }
+
+    .feature-info {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 999;
+    }
+
+    .feature-info.show { display: flex; }
+
+    .feature-info p {
+      background: #fff;
+      padding: 40px;
+      max-width: 500px;
+      border-radius: 15px;
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    #closeInfo {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 28px;
+      color: #666;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    #closeInfo:hover { color: #ef4444; }
+
+    @media (max-width: 900px) {
+      .features-row { flex-direction: row; justify-content: center; }
+    }
+
+    @media (max-width: 600px) {
+      .feature-card { flex: 1 1 100%; max-width: none; padding: 20px 15px; }
+      .why-choose { padding: 60px 5%; }
+    }
+  </style>
+
+  <!-- GLOBAL COMMUNITY STYLES -->
+  <style>
+    .global-community {
+      padding: 60px 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+    }
+
+    .gc-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .gc-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .gc-content { flex: 1; min-width: 300px; }
+
+    .gc-content h2 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #14c1b1, #0c6ab7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .gc-content p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .gc-btn {
+      background: linear-gradient(90deg, #0c6ab7, #14c1b1);
+      color: #fff;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .gc-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(12, 106, 183, 0.3);
+    }
+
+    .form-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .form-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      color: #666;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover { color: #ef4444; }
+
+    .form-box h3 {
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, #14c1b1, #0c6ab7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .form-box p { color: #555; margin-bottom: 25px; }
+
+    .popup-form { display: flex; flex-direction: column; gap: 15px; }
+
+    .form-row { display: flex; gap: 15px; flex-wrap: wrap; }
+
+    .popup-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .popup-form input:focus {
+      border-color: #0c6ab7;
+      outline: none;
+    }
+
+    .privacy-note { font-size: 0.9rem; color: #555; margin-top: 10px; }
+    .privacy-note a { color: #0c6ab7; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .global-community { flex-direction: column; padding: 60px 5%; }
+      .gc-container { flex-direction: column; text-align: center; }
+      .gc-image img { max-width: 100%; }
+    }
+  </style>
+
+  <!-- CHALLENGES STYLES -->
+  <style>
+    .challenges {
+      background: #ffffff;
+      padding: 80px 10% 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .challenges h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #14c1b1, #0c6ab7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .challenges .subtitle {
+      color: #555;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      line-height: 1.6;
+    }
+
+    .challenge-row {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .challenge-card {
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: 15px;
+      padding: 40px 25px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      flex: 1 1 300px;
+      max-width: 350px;
+      min-height: 340px;
+    }
+
+    .challenge-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .challenge-card .icon {
+      font-size: 2.5rem;
+      color: #0c6ab7;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .challenge-card:hover .icon { color: #14c1b1; }
+
+    .challenge-card h3 {
+      color: #111;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .challenge-card p {
+      color: #444;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .challenge-row { flex-direction: row; justify-content: center; }
+    }
+
+    @media (max-width: 600px) {
+      .challenge-card { flex: 1 1 100%; max-width: none; min-height: auto; }
+      .challenges h2 { font-size: 2.2rem; }
+      .challenges { padding: 60px 5%; }
+    }
+  </style>
+
+  <!-- FOOTER STYLES -->
+  <style>
+    .dz-footer {
+      background: #0b0f19;
+      color: #e0e0e0;
+      padding: 60px 8%;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .footer-logo { flex: 1 1 180px; min-width: 180px; }
+
+    .footer-logo img {
+      width: 180px;
+      margin-bottom: 12px;
+      transition: transform 0.3s ease;
+    }
+    .footer-logo img:hover { transform: scale(1.05); }
+
+    .footer-logo h3 { color: #fff; font-size: 1rem; margin: 10px 0 8px; }
+
+    .footer-logo h6 a {
+      color: #14C1B1;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .footer-logo h6 a:hover { color: #0C6AB7; }
+
+    .footer-logo p { font-size: 0.9rem; line-height: 1.6; color: #ccc; margin-top: 5px; }
+
+    .footer-links, .footer-policy, .footer-social {
+      flex: 1 1 180px;
+      min-width: 180px;
+    }
+
+    .footer-links h3,
+    .footer-policy h3,
+    .footer-social h3 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+      border-bottom: 2px solid #14C1B1;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .footer-links ul,
+    .footer-policy ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-links li,
+    .footer-policy li { margin-bottom: 8px; }
+
+    .footer-links a,
+    .footer-policy a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-policy a:hover {
+      color: #14C1B1;
+      padding-left: 4px;
+    }
+
+    .footer-social .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .footer-social .social-icons a {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social .social-icons a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0C6AB7, #14C1B1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+      border-radius: 50%;
+    }
+    .footer-social .social-icons a:hover::before { opacity: 1; }
+
+    .footer-social .social-icons a:hover i {
+      transform: scale(1.1);
+      color: #fff;
+    }
+
+    .footer-social .social-icons i {
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 25px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .dz-footer { flex-direction: column; gap: 30px; padding: 40px 6%; }
+      .footer-links, .footer-policy, .footer-social { width: 100%; }
+      .footer-social .social-icons { justify-content: flex-start; }
+    }
+    .dz-footer > div:nth-child(2) h3,
+.dz-footer > div:nth-child(3) h3 {
+    color: #ffffff !important;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="circle blue small one"></div>
+    <div class="circle teal medium two"></div>
+    <div class="circle blue large three"></div>
+    <div class="circle teal small four"></div>
+
+    <div class="hero-content">
+      <h1>Empowering B2B Brands to <span>Generate Quality Leads</span></h1>
+      <p>We help enterprises generate qualified leads, engage the right prospects, and achieve sustainable growth across markets.</p>
+      <a href="https://manlitics.com/contact/" target="_blank">
+        <button id="infoBtn">Talk To An Expert</button>
+      </a>
+    </div>
+  </section>
+
+  <!-- CLIENTS SECTION -->
+  <section class="clients">
+    <h1>Our Trusted Clients</h1>
+    <div class="logos-slider">
+      <div class="logos-track">
+        <img src="https://manlitics.com/wp-content/uploads/2026/03/Oracle-Logo-scaled.png" alt="Oracle" />
+        <img src="https://manlitics.com/wp-content/uploads/2026/03/Google-logo-scaled.png" alt="Google" />
+        <img src="https://manlitics.com/wp-content/uploads/2026/03/microsoft-logo.png" alt="Microsoft" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/960px-IBM_logo.svg.png" alt="IBM" />
+        <img src="https://1000logos.net/wp-content/uploads/2020/05/NetApp-Symbol.png" alt="NetApp" />
+        <img src="https://support.pingidentity.com/servlet/servlet.FileDownload?file=00P1W00001JyiVPUAZ" alt="Zscaler" />
+        <img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/754rkLZoY9c3vZmwjXTKnC/c5635d0f48bfb13080cf77ceac387695/cf-blog-logo-crop.png" alt="Cloudflare" />
+        <img src="https://manlitics.com/wp-content/uploads/2026/03/Adobe-Logo-scaled.png" alt="Adobe" />
+        <img src="https://www.pngall.com/wp-content/uploads/13/AWS-Logo.png" alt="AWS" />
+        <img src="https://blog.logomyway.com/wp-content/uploads/2022/05/amd-symbol.png" alt="AMD" />
+        <img src="https://www.informatica.com/content/dam/informatica-com/en/image/misc/informatica-logo.png" alt="Informatica" />
+
+        <!-- Duplicate for seamless loop -->
+        <img src="https://manlitics.com/wp-content/uploads/2026/03/Oracle-Logo-scaled.png" alt="Oracle" />
+        <img src="https://manlitics.com/wp-content/uploads/2026/03/Google-logo-scaled.png" alt="Google" />
+        <img src="https://manlitics.com/wp-content/uploads/2026/03/microsoft-logo.png" alt="Microsoft" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/960px-IBM_logo.svg.png" alt="IBM" />
+        <img src="https://1000logos.net/wp-content/uploads/2020/05/NetApp-Symbol.png" alt="NetApp" />
+        <img src="https://support.pingidentity.com/servlet/servlet.FileDownload?file=00P1W00001JyiVPUAZ" alt="Zscaler" />
+        <img src="https://cf-assets.www.cloudflare.com/zkvhlag99gkb/754rkLZoY9c3vZmwjXTKnC/c5635d0f48bfb13080cf77ceac387695/cf-blog-logo-crop.png" alt="Cloudflare" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/300px-Dell_Logo.svg.png" alt="Dell" />
+        <img src="https://logos-world.net/wp-content/uploads/2020/06/Adobe-Logo.png" alt="Adobe" />
+        <img src="https://www.pngall.com/wp-content/uploads/13/AWS-Logo.png" alt="AWS" />
+        <img src="https://blog.logomyway.com/wp-content/uploads/2022/05/amd-symbol.png" alt="AMD" />
+        <img src="https://www.informatica.com/content/dam/informatica-com/en/image/misc/informatica-logo.png" alt="Informatica" />
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="why-choose">
+    <div class="container">
+      <h2>Why Choose Us?</h2>
+      <p class="subtitle">Serving your needs better</p>
+
+      <div class="features-row">
+        <div class="feature-card" data-info="We deliver top-notch services ensuring exceptional quality in every project.">
+          <div class="icon"><i class="fas fa-star"></i></div>
+          <h3>Quality</h3>
+        </div>
+
+        <div class="feature-card" data-info="Our systems and strategies scale effortlessly as your business grows.">
+          <div class="icon"><i class="fas fa-expand-arrows-alt"></i></div>
+          <h3>Scalability</h3>
+        </div>
+
+        <div class="feature-card" data-info="We value time and deliver projects right when you need them.">
+          <div class="icon"><i class="fas fa-clock"></i></div>
+          <h3>Timeliness</h3>
+        </div>
+      </div>
+
+      <div class="features-row">
+        <div class="feature-card" data-info="Built-in lead management system ensures no opportunity is missed.">
+          <div class="icon"><i class="fas fa-tasks"></i></div>
+          <h3>In-Built Lead Management</h3>
+        </div>
+
+        <div class="feature-card" data-info="We serve clients worldwide with a strong international presence.">
+          <div class="icon"><i class="fas fa-globe"></i></div>
+          <h3>Global Presence</h3>
+        </div>
+
+        <div class="feature-card" data-info="We provide only the most qualified leads to fuel your growth.">
+          <div class="icon"><i class="fas fa-user-check"></i></div>
+          <h3>Deliver Qualified Leads</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE INFO POPUP -->
+  <div id="featureInfo" class="feature-info">
+    <p>
+      <span id="closeInfo">&times;</span>
+      <span id="infoText"></span>
+    </p>
+  </div>
+
+  <!-- GLOBAL COMMUNITY SECTION -->
+  <section class="global-community">
+    <div class="gc-container">
+      <div class="gc-image">
+        <img
+          src="https://t3.ftcdn.net/jpg/05/61/86/64/360_F_561866422_EV8JFSzxzomqPl5qPxBpsKxpggNdu25i.jpg"
+          alt="Business Growth Map"
+        />
+      </div>
+
+      <div class="gc-content">
+        <h2>Powered By Our Global Community.</h2>
+        <p>
+          Our Manlitics Data Cloud is our superpower. No partner networks mean we provide lead sourcing transparency and unrivalled lead integrity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPUP FORM -->
+  <div id="formPopup" class="form-popup">
+    <div class="form-box">
+      <span id="closeForm" class="close-btn">&times;</span>
+      <h3>Let us know more about your company</h3>
+      <p>To see how Manlitics can boost your B2B sales</p>
+
+      <form class="popup-form">
+        <div class="form-row">
+          <input type="text" placeholder="First name" required />
+          <input type="text" placeholder="Last name" required />
+        </div>
+
+        <div class="form-row">
+          <input type="text" placeholder="Job title" required />
+          <input type="email" placeholder="Business email" required />
+        </div>
+
+        <div class="form-row">
+          <input type="text" value="+91" readonly style="width: 80px; text-align:center;" />
+          <input type="text" placeholder="Phone number" required />
+        </div>
+
+        <input type="text" placeholder="Company name" required />
+
+        <button type="submit" class="gc-btn">Continue</button>
+
+        <p class="privacy-note">
+          By submitting the form I agree with the <a href="#">Privacy policy</a>.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- CHALLENGES SECTION -->
+  <section class="challenges">
+    <div class="container">
+      <h2>Challenges You Can Entrust To Us</h2>
+      <p class="subtitle">
+        1,000+ of our clients had pipeline generation issues that seemed
+        intractable, but we proved otherwise. Faced any of these?
+      </p>
+
+      <div class="challenge-row">
+        <div class="challenge-card">
+          <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Revenue Stagnation</h3>
+          <p>
+            Your revenue boost is lagging 2–3 times behind projections, and you're
+            struggling to find enough qualified opportunities to close B2B deals.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3>Slow Deal Closure</h3>
+          <p>
+            Meeting sales quotas takes an unacceptably long time frame of 6–12
+            months. Your goal is to boost lead quality to drive sales-ready
+            prospects.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <div class="icon"><i class="fa-solid fa-people-arrows"></i></div>
+          <h3>Disconnected Sales & Marketing</h3>
+          <p>
+            Without shared goals and clear processes, marketing pushes leads that
+            sales can't close, while sales feedback gets lost.
+          </p>
+        </div>
+      </div>
+
+      <div class="challenge-row">
+        <div class="challenge-card">
+          <div class="icon"><i class="fa-solid fa-gears"></i></div>
+          <h3>Internal Constraints & Bottlenecks</h3>
+          <p>
+            Overburdened with routine, your team struggles to optimize processes
+            and innovate go-to-market strategies, resulting in missed sales KPIs.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <div class="icon"><i class="fa-solid fa-filter-circle-xmark"></i></div>
+          <h3>Inconsistent Lead Quality</h3>
+          <p>
+            Despite investing in lead gen and experimenting with new tools, you're
+            struggling to convert leads into qualified appointments.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <div class="icon"><i class="fa-solid fa-face-frown"></i></div>
+          <h3>Frustrating Experience with a Past Vendor</h3>
+          <p>
+            Previous B2B sales agencies have left you disappointed and skeptical
+            about the potential of lead generation outsourcing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="image-wrapper">
+      <img src="https://manlitics.com/wp-content/uploads/2025/11/Email-Marketing.png" alt="Showcase Image" />
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="dz-footer">
+    <div class="footer-logo">
+      <img src="https://manlitics.com/wp-content/uploads/2025/12/ManliticsLogo1-white-scaled.png" alt="Manlitics Logo">
+    </div>
+    <div>
+      <h3 class="footer-address-title">India Address</h3>
+      <h6><a href="https://maps.app.goo.gl/DtXVxKNN4Ah2QJk16"><i class="fa-solid fa-location-dot"></i> Pune Office</a></h6>
+      <p>JK Infotech Park, 1st Floor,<br>Next to Ruby Hall Hospital,<br>Hinjewadi Phase 1, Pune.</p>
+    </div>
+    <div>
+      <h3 class="footer-address-title">US Address</h3>
+      <h6><a href="" target="_blank"><i class="fa-solid fa-location-dot"></i> US Office</a></h6>
+      <p>305, Broadway, New <br> York, 10007, US.</p>
+    </div>
+    <div class="footer-links">
+      <h3>Work with us</h3>
+      <ul>
+        <li><a href="https://manlitics.com/career/">Careers</a></li>
+        <li><a href="https://manlitics.com/contact/">Contact Us</a></li>
+        <li><a href="https://manlitics.com/privacy-policy/">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-policy">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="https://manlitics.com/">Home</a></li>
+        <li><a href="https://manlitics.com/about/">About Us</a></li>
+        <li><a href="https://manlitics.com/services/">Services</a></li>
+        <li><a href="https://manlitics.com/blogs/">Blogs</a></li>
+        <li><a href="https://manlitics.com/gallery/">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h3>Connect With Us</h3>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/manlitics-b2b-ites-pvt-ltd/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100064033175565" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/manlitics?igsh=bXpsbm9lbjQ3YmVw" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 All Rights Reserved | Manlitics B2B ITES</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Feature card info popup
+    const cards = document.querySelectorAll(".feature-card");
+    const infoBox = document.getElementById("featureInfo");
+    const infoText = document.getElementById("infoText");
+    const closeInfo = document.getElementById("closeInfo");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        infoText.textContent = card.getAttribute("data-info");
+        infoBox.classList.add("show");
+      });
+    });
+
+    closeInfo.addEventListener("click", () => {
+      infoBox.classList.remove("show");
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === infoBox) {
+        infoBox.classList.remove("show");
+      }
+    });
+  </script>
+
+  <script>
+    // Contact form popup (fixed: removed the stray duplicate code block
+    // that was causing a JS syntax error and breaking this whole script)
+    const openFormBtn = document.getElementById("openFormBtn");
+    const formPopup = document.getElementById("formPopup");
+    const closeForm = document.getElementById("closeForm");
+
+    if (openFormBtn) {
+      openFormBtn.addEventListener("click", () => {
+        formPopup.style.display = "flex";
+      });
+    }
+
+    closeForm.addEventListener("click", () => {
+      formPopup.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === formPopup) {
+        formPopup.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

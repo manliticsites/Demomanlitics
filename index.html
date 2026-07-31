@@ -978,11 +978,7 @@ padding:10px;
       <h3>Let us know more about your company</h3>
       <p>To see how Manlitics can boost your B2B sales</p>
 
-      <form class="popup-form">
-        <div class="form-row">
-          <input type="text" placeholder="First name" required />
-          <input type="text" placeholder="Last name" required />
-        </div>
+>
 
         <div class="form-row">
           <input type="text" placeholder="Job title" required />
@@ -1162,21 +1158,7 @@ window.addEventListener("click", (e) => {
 </script>
 
 <script>
-// Contact form popup
-const openFormBtn = document.getElementById("infoBtn"); // Changed from openFormBtn
-const formPopup = document.getElementById("formPopup");
-const closeForm = document.getElementById("closeForm");
 
-if (openFormBtn) {
-    openFormBtn.addEventListener("click", (e) => {
-        e.preventDefault(); // Prevent opening the external link
-        formPopup.style.display = "flex";
-    });
-}
-
-closeForm.addEventListener("click", () => {
-    formPopup.style.display = "none";
-});
 
 window.addEventListener("click", (e) => {
     if (e.target === formPopup) {

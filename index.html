@@ -1,18 +1,7 @@
 
 
   <style>
-/* ===== RESET ===== */
-*{
-...
-}
 
-/* ================= NAVBAR ================= */
-
-/* paste navbar css here */
-
-.navbar{
-...
-}
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -25,67 +14,209 @@ scroll-behavior:smooth;
 
 }
 
+
 body{
+    background:#fff;
+    color:#111827;
+    overflow-x:hidden;
+}
+/* ================= NAVBAR ================= */
 
-background:#fff;
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(15px);
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+    z-index:9999;
+}
 
-color:#111827;
+.nav-container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
 
-overflow-x:hidden;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    height:80px;
+}
+
+.logo img{
+    height:70px;
+    width:auto;
+}
+
+.nav-links{
+
+display:flex;
+align-items:center;
+
+gap:35px;
 
 }
-      color: #111827;
-      overflow-x: hidden;
-    }
 
+.nav-links li{
+    list-style:none;
+}
+
+.nav-links a{
+    position:relative;
+    text-decoration:none;
+    color:#222;
+    font-weight:500;
+    transition:.3s;
+}
+.menu-toggle{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+}
+
+.menu-toggle span{
+    width:28px;
+    height:3px;
+    background:#0C6AB7;
+    margin:4px 0;
+}
+
+/* Mobile */
+
+@media (max-width:991px){
+
+.menu-toggle{
+    display:flex;
+    z-index:10001;
+}
+
+nav{
+    position:fixed;
+    top:80px;
+    left:-100%;
+    width:100%;
+    background:#fff;
+    transition:.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+nav.active{
+    left:0;
+}
+
+.nav-links{
+    flex-direction:column;
+    align-items:center;
+    padding:35px 0;
+    gap:25px;
+}
+
+.nav-links li{
+    width:100%;
+    text-align:center;
+}
+
+.nav-links a{
+    display:block;
+    padding:12px;
+}
+
+}
     /* ===== HERO SECTION ===== */
     .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    padding:170px 20px 60px;
+    background:#fff;
+}
+    .nav-links a:hover{
+    color:#14C1B1;
+}
 
-position:relative;
-min-height:100vh;
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:#14C1B1;
+    transition:.3s;
+}
 
-padding-top:170px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-      padding: 120px 20px 60px;
-      background: #fff;
-    }
+.nav-links a:hover::after{
+    width:100%;
+}
 
     /* ===== CIRCLES (ONLY INSIDE HERO) ===== */
-    .hero .circle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.25;
-      filter: blur(40px);
-      animation: float 10s infinite alternate ease-in-out;
-      z-index: 0;
+/* ===== Animated Hero Background ===== */
+
+.animated-bg{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.gradient{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.35;
+    animation:move 12s ease-in-out infinite alternate;
+}
+
+.one{
+    width:450px;
+    height:450px;
+    background:#14C1B1;
+    top:-100px;
+    left:-100px;
+}
+
+.two{
+    width:550px;
+    height:550px;
+    background:#0C6AB7;
+    bottom:-150px;
+    right:-150px;
+    animation-delay:2s;
+}
+
+.three{
+    width:320px;
+    height:320px;
+    background:#1CC6E8;
+    top:20%;
+    left:45%;
+    animation-delay:4s;
+}
+
+@keyframes move{
+
+    from{
+        transform:translate(0,0) scale(1);
     }
 
-    .hero .circle.blue { background: #0C6AB7; }
-    .hero .circle.teal { background: #14C1B1; }
-
-    .hero .circle.small { width: 150px; height: 150px; }
-    .hero .circle.medium { width: 250px; height: 250px; }
-    .hero .circle.large { width: 400px; height: 400px; }
-
-    .hero .circle.one { top: 10%; left: 8%; }
-    .hero .circle.two { bottom: 20%; right: 10%; }
-    .hero .circle.three { top: 50%; right: 25%; }
-    .hero .circle.four { bottom: 5%; left: 25%; }
-
-    @keyframes float {
-      from { transform: translateY(0px); }
-      to { transform: translateY(-30px); }
+    to{
+        transform:translate(40px,-40px) scale(1.2);
     }
+
+}
 
     /* ===== HERO CONTENT ===== */
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 700px;
+      max-width:950px;
     }
 
     .hero-content h1 {
@@ -180,11 +311,14 @@ padding-top:170px;
       display: flex;
       gap: 60px;
       width: max-content;
-      animation: scroll 30s linear infinite;
+      animation: scroll 40s linear infinite;
     }
 
-    .logos-track img {
-      height: 70px;
+    .logos-track img{
+
+height:60px;
+object-fit:contain;
+padding:10px;
       filter: grayscale(100%);
       opacity: 0.8;
       transition: all 0.3s ease;
@@ -728,14 +862,14 @@ padding-top:170px;
     <div class="hero-content">
       <h1>Empowering B2B Brands to <span>Generate Quality Leads</span></h1>
       <p>We help enterprises generate qualified leads, engage the right prospects, and achieve sustainable growth across markets.</p>
-      <a href="https://manlitics.com/contact/" target="_blank">
-        <button id="infoBtn">Talk To An Expert</button>
-      </a>
+<a href="https://manlitics.com/contact/" target="_blank">
+<button id="infoBtn">Talk To An Expert</button>
+  </a>
     </div>
   </section>
 
   <!-- CLIENTS SECTION -->
-  <section class="clients">
+  <section class="clients" id="blogs">
     <h1>Our Trusted Clients</h1>
     <div class="logos-slider">
       <div class="logos-track">
@@ -769,7 +903,7 @@ padding-top:170px;
   </section>
 
   <!-- WHY CHOOSE US SECTION -->
-  <section class="why-choose">
+  <section class="why-choose" id="about">
     <div class="container">
       <h2>Why Choose Us?</h2>
       <p class="subtitle">Serving your needs better</p>
@@ -819,7 +953,7 @@ padding-top:170px;
   </div>
 
   <!-- GLOBAL COMMUNITY SECTION -->
-  <section class="global-community">
+  <section class="global-community" id="services">
     <div class="gc-container">
       <div class="gc-image">
         <img
@@ -872,7 +1006,7 @@ padding-top:170px;
   </div>
 
   <!-- CHALLENGES SECTION -->
-  <section class="challenges">
+  <section class="challenges" id="gallery">
     <div class="container">
       <h2>Challenges You Can Entrust To Us</h2>
       <p class="subtitle">
@@ -945,7 +1079,7 @@ padding-top:170px;
   </section>
 
   <!-- FOOTER -->
-  <footer class="dz-footer">
+  <footer class="dz-footer" id="contact">
     <div class="footer-logo">
       <img src="https://manlitics.com/wp-content/uploads/2025/12/ManliticsLogo1-white-scaled.png" alt="Manlitics Logo">
     </div>
@@ -991,71 +1125,68 @@ padding-top:170px;
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
-  </body>
+<!-- ================= SCRIPTS ================= -->
+
 <script>
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
-const menuToggle=document.getElementById("menuToggle");
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+</script>
 
-const navMenu=document.getElementById("navMenu");
+<script>
+// Feature card info popup
+const cards = document.querySelectorAll(".feature-card");
+const infoBox = document.getElementById("featureInfo");
+const infoText = document.getElementById("infoText");
+const closeInfo = document.getElementById("closeInfo");
 
-menuToggle.addEventListener("click",()=>{
-
-navMenu.classList.toggle("active");
-
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        infoText.textContent = card.getAttribute("data-info");
+        infoBox.classList.add("show");
+    });
 });
 
+closeInfo.addEventListener("click", () => {
+    infoBox.classList.remove("show");
+});
+
+window.addEventListener("click", (e) => {
+    if (e.target === infoBox) {
+        infoBox.classList.remove("show");
+    }
+});
+</script>
+
+<script>
+// Contact form popup
+const openFormBtn = document.getElementById("infoBtn"); // Changed from openFormBtn
+const formPopup = document.getElementById("formPopup");
+const closeForm = document.getElementById("closeForm");
+
+if (openFormBtn) {
+    openFormBtn.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent opening the external link
+        formPopup.style.display = "flex";
+    });
+}
+
+closeForm.addEventListener("click", () => {
+    formPopup.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+    if (e.target === formPopup) {
+        formPopup.style.display = "none";
+    }
+});
 </script>
 
 </body>
-  <script>
-    // Feature card info popup
-    const cards = document.querySelectorAll(".feature-card");
-    const infoBox = document.getElementById("featureInfo");
-    const infoText = document.getElementById("infoText");
-    const closeInfo = document.getElementById("closeInfo");
-
-    cards.forEach(card => {
-      card.addEventListener("click", () => {
-        infoText.textContent = card.getAttribute("data-info");
-        infoBox.classList.add("show");
-      });
-    });
-
-    closeInfo.addEventListener("click", () => {
-      infoBox.classList.remove("show");
-    });
-
-    window.addEventListener("click", (e) => {
-      if (e.target === infoBox) {
-        infoBox.classList.remove("show");
-      }
-    });
-  </script>
-
-  <script>
-    // Contact form popup (fixed: removed the stray duplicate code block
-    // that was causing a JS syntax error and breaking this whole script)
-    const openFormBtn = document.getElementById("openFormBtn");
-    const formPopup = document.getElementById("formPopup");
-    const closeForm = document.getElementById("closeForm");
-
-    if (openFormBtn) {
-      openFormBtn.addEventListener("click", () => {
-        formPopup.style.display = "flex";
-      });
-    }
-
-    closeForm.addEventListener("click", () => {
-      formPopup.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-      if (e.target === formPopup) {
-        formPopup.style.display = "none";
-      }
-    });
-  </script>
-
-</body>
+section{
+    scroll-margin-top:100px;
+}
 </html>

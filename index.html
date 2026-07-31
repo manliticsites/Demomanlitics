@@ -1,25 +1,50 @@
 
 
   <style>
-    /* ===== RESET ===== */
-    * {
+/* ===== RESET ===== */
+*{
+...
+}
+
+/* ================= NAVBAR ================= */
+
+/* paste navbar css here */
+
+.navbar{
+...
+}
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: "Poppins", sans-serif;
     }
 
-    body {
-      background-color: #fff;
+   html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:#fff;
+
+color:#111827;
+
+overflow-x:hidden;
+
+}
       color: #111827;
       overflow-x: hidden;
     }
 
     /* ===== HERO SECTION ===== */
-    .hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
+    .hero{
+
+position:relative;
+min-height:100vh;
+
+padding-top:170px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -661,12 +686,44 @@
 
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="circle blue small one"></div>
-    <div class="circle teal medium two"></div>
-    <div class="circle blue large three"></div>
-    <div class="circle teal small four"></div>
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="#" class="logo">
+            <img src="images/ManliticsLogo1.png" alt="Manlitics Logo">
+        </a>
+
+        <nav id="navMenu">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+<div class="animated-bg">
+
+<div class="gradient one"></div>
+<div class="gradient two"></div>
+<div class="gradient three"></div>
+
+</div>
 
     <div class="hero-content">
       <h1>Empowering B2B Brands to <span>Generate Quality Leads</span></h1>
@@ -935,6 +992,22 @@
   </footer>
 
   <!-- SCRIPTS -->
+  </body>
+<script>
+
+const menuToggle=document.getElementById("menuToggle");
+
+const navMenu=document.getElementById("navMenu");
+
+menuToggle.addEventListener("click",()=>{
+
+navMenu.classList.toggle("active");
+
+});
+
+</script>
+
+</body>
   <script>
     // Feature card info popup
     const cards = document.querySelectorAll(".feature-card");
